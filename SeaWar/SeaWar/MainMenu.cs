@@ -55,6 +55,31 @@ public class MainMenu : MonoBehaviour {
         }
     }
 
+    void Update()
+    {
+        Quaternion target = Quaternion.Euler(
+            mStatesRotations[(int)mCurrentMenuState]);
+
+        if (Camera.main.transform.rotation != target)
+        {
+            Camera.main.transform.rotation =
+                Quaternion.Slerp(
+                    Camera.main.transform.rotation,
+                    target,
+                    Time.deltaTime * mSmooth);
+        }
+
+        if (panelMainMenu.transform.position !=
+            TranslateCoords(mMainMenuPositions[(int)mCurrentMenuState]))
+        {
+            panelMainMenu.transform.position =
+                Vector3.Lerp(
+                    panelMainMenu.transform.position,
+                    TranslateCoords(mMainMenuPositions[(int)mCurrentMenuState]),
+                    Time.deltaTime * mSmooth);
+        }
+    }
+
     // преобразование координат относительных в экранные координаты
     public Vector3 TranslateCoords(Vector3 vec)
     {

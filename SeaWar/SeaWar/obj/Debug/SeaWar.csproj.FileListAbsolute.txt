@@ -1,1 +1,2 @@
 c:\users\аидф\documents\visual studio 2013\Projects\SeaWar\SeaWar\bin\Debug\SeaWar.exe.config
+C:\Users\аидф\Documents\Visual Studio 2013\Projects\SeaBattle\SeaWar\SeaWar\bin\Debug\SeaWar.exe.config

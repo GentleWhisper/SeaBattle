@@ -85,4 +85,43 @@ public class MainMenu : MonoBehaviour {
     {
         return new Vector3(vec.x * Screen.width, vec.y * Screen.height, vec.z);
     }
+
+    // начать игру
+    public void LoadGame()
+    {
+        GameOptions.Instance.Mode = GameOptions.GameMode.PvE;
+        Application.LoadLevel(1);
+    }
+
+    // загрузить основное меню
+    public void LoadMainMenu()
+    {
+        mCurrentMenuState = MenuState.Main;
+    }
+
+    // выйти из игры
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    // сделать активными кнопки в меню сетевой игры
+    void EnableMultiplayerMenu()
+    {
+        GameObject.Find("btnHost").GetComponent<Button>().interactable = true;
+        GameObject.Find("btnConnect").GetComponent<Button>().interactable = true;
+        GameObject.Find("btnBack").GetComponent<Button>().interactable = true;
+        GameObject.Find("InputFieldIp").GetComponent<InputField>().interactable = true;
+        GameObject.Find("InputFieldPort").GetComponent<InputField>().interactable = true;
+    }
+
+    // сделать не активными кнопки в меню сетевой игры
+    void DisableMultiplayerMenu()
+    {
+        GameObject.Find("btnHost").GetComponent<Button>().interactable = false;
+        GameObject.Find("btnConnect").GetComponent<Button>().interactable = false;
+        GameObject.Find("btnBack").GetComponent<Button>().interactable = false;
+        GameObject.Find("InputFieldIp").GetComponent<InputField>().interactable = false;
+        GameObject.Find("InputFieldPort").GetComponent<InputField>().interactable = false;
+    }
 }
